@@ -20,6 +20,12 @@ if __FILE__ == $PROGRAM_NAME
       end
     when 'W'
       my_list.write_to_file(prompt('Which file do you like to write to?'))
+    when 'R'
+      begin
+        my_list.read_from_file(prompt('Which file do you like to read from?'))
+      rescue Errno::ENOENT
+        puts "File not found, please verify your filename."
+      end
     when "Q"
       break
     else

@@ -19,4 +19,8 @@ class List
   def write_to_file(filename)
     write_content_to_file(filename, @all_tasks)
   end
+
+  def read_from_file(filename)
+    @all_tasks = read_content_from_file(filename)
+  end
 end

@@ -9,4 +9,12 @@ module FileManager
     end
   end
 
+  def read_content_from_file(filename)
+    task = Array.new
+    File.open(filename,"r").readlines.each do |task_description|
+      task << Task.new(task_description)
+    end
+    return task
+  end
+
 end

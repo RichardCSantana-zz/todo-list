@@ -5,6 +5,7 @@ module Menu
     [A]dd new Task
     [S]how tasks
     [W]rite to a file
+    [R]ead from a file
     [Q]uit"
   end
 end
