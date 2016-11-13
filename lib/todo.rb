@@ -9,7 +9,7 @@ if __FILE__ == $PROGRAM_NAME
   include Promptable
   menu
   loop do
-    case prompt
+    case prompt.upcase
     when 'A'
       my_list.add(Task.new(prompt('What is the task you would like to accomplish?')))
     when 'S'
