@@ -1,4 +1,7 @@
+require_relative "file_manager"
+
 class List
+  include FileManager
   attr_reader :all_tasks
 
   def initialize
@@ -11,5 +14,9 @@ class List
 
   def show
     @all_tasks
+  end
+
+  def write_to_file(filename)
+    write_content_to_file(filename, @all_tasks)
   end
 end

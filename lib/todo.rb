@@ -18,6 +18,8 @@ if __FILE__ == $PROGRAM_NAME
         puts "#{count}: #{task.description}"
         count += 1
       end
+    when 'W'
+      my_list.write_to_file(prompt('Which file do you like to write to?'))
     when "Q"
       break
     else
