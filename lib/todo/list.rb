@@ -16,6 +16,12 @@ class List
     @all_tasks
   end
 
+  def complete(index)
+    value = index.to_i
+    value -= 1
+    @all_tasks[value].complete
+  end
+
   def delete(index)
     value = index.to_i
     value -= 1

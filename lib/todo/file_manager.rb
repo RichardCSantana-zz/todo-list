@@ -11,8 +11,9 @@ module FileManager
 
   def read_content_from_file(filename)
     task = Array.new
-    File.open(filename,"r").readlines.each do |task_description|
-      task << Task.new(task_description)
+    File.open(filename,"r").readlines.each do |line|
+      value = line.split(',')
+      task << Task.new(value[0],value[1].gsub("\n",'') == "true")
     end
     return task
   end

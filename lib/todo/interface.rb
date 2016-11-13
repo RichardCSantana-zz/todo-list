@@ -27,6 +27,9 @@ class Interface
       when 'U'
         show
         update
+      when 'C'
+        show
+        complete
       when 'Q'
         break
       else
@@ -44,7 +47,7 @@ class Interface
   def show
     count = 1
     @my_list.show.each do |task|
-      puts "#{count}: #{task.description}"
+      puts "#{count}: #{task.description} [" + (task.completed? ? "X" : " ") + "]"
       count += 1
     end
   end
@@ -67,6 +70,10 @@ class Interface
 
   def update
     @my_list.update(prompt('Which task do you want to update?'),prompt('Which is the new description ?'))
+  end
+
+  def complete
+    @my_list.complete(prompt('Which task do you want to complete?'))
   end
 
 end
