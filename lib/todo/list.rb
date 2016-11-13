@@ -16,10 +16,10 @@ class List
     @all_tasks
   end
 
-  def complete(index)
+  def toogle(index)
     value = index.to_i
     value -= 1
-    @all_tasks[value].complete
+    @all_tasks[value].toogle
   end
 
   def delete(index)

@@ -27,9 +27,9 @@ class Interface
       when 'U'
         show
         update
-      when 'C'
+      when 'T'
         show
-        complete
+        toggle
       when 'Q'
         break
       else
@@ -72,8 +72,8 @@ class Interface
     @my_list.update(prompt('Which task do you want to update?'),prompt('Which is the new description ?'))
   end
 
-  def complete
-    @my_list.complete(prompt('Which task do you want to complete?'))
+  def toggle
+    @my_list.toggle(prompt('Which task do you want to toggle?'))
   end
 
 end

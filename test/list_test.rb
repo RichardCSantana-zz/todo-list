@@ -30,7 +30,7 @@ class ListTest < Test::Unit::TestCase
     end
     list.delete(4)
     assert_equal(4,list.show.length)
-    assert_equal("Task4",list.all_tasks[3].to_s)
+    assert_equal("Task4",list.all_tasks[3].description)
   end
 
   def test_update
@@ -39,6 +39,17 @@ class ListTest < Test::Unit::TestCase
       list.add(Task.new("Task#{index}"))
     end
     list.update(4,"strange")
-    assert_equal("strange",list.all_tasks[3].to_s)
+    assert_equal("strange",list.all_tasks[3].description)
+  end
+
+  def test_toogle
+    list = List.new
+    5.times do |index|
+      list.add(Task.new("Task#{index}"))
+    end
+    list.toogle(4)
+    assert_true(list.all_tasks[3].completed?)
+    list.toogle(4)
+    assert_false(list.all_tasks[3].completed?)
   end
 end

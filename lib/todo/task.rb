@@ -10,8 +10,8 @@ class Task
     @status
   end
 
-  def complete
-    @status = true
+  def toogle
+    @status = !@status
   end
 
   def to_s
