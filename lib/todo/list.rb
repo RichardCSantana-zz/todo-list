@@ -16,6 +16,18 @@ class List
     @all_tasks
   end
 
+  def delete(index)
+    value = index.to_i
+    value -= 1
+    @all_tasks.delete_at(value)
+  end
+
+  def update(index, new_description)
+    value = index.to_i
+    value -= 1
+    @all_tasks[value] = Task.new(new_description)
+  end
+
   def write_to_file(filename)
     write_content_to_file(filename, @all_tasks)
   end

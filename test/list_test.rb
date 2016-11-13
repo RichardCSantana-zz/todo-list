@@ -22,4 +22,23 @@ class ListTest < Test::Unit::TestCase
     list.add(task)
     assert_equal(1,list.show.length)
   end
+
+  def test_delete
+    list = List.new
+    5.times do |index|
+      list.add(Task.new("Task#{index}"))
+    end
+    list.delete(4)
+    assert_equal(4,list.show.length)
+    assert_equal("Task4",list.all_tasks[3].to_s)
+  end
+
+  def test_update
+    list = List.new
+    5.times do |index|
+      list.add(Task.new("Task#{index}"))
+    end
+    list.update(4,"strange")
+    assert_equal("strange",list.all_tasks[3].to_s)
+  end
 end
